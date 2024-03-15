@@ -1,1 +1,61 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+local Window = 
+           Fluent:CreateWindow(
+         {
+    Title = "ZzZz HUB" ,
+    SubTitle = "Code By Gia Nguyen",
+    TabWidth = 180,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+      }
+)
+local Tabs = {
+    About = Window:AddTab({ Title = "About Script" , Icon "layers" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
+    Teleport = Window:AddTab({ Title = "Teleport" Icon = "palmtree" })
+}
+local Options = Fluent.Options
+
+do
+    Fluent:Notify({
+        Title = "ZzZz HUB",
+        Content = "Code By Gia Nguyen",
+        SubContent = "Code By Gia Nguyen Dzai", -- Optional
+        Duration = 5 -- Set to nil to make the notification not disappear
+    })
+-------------------------------------------------
+function AntiBan()
+        for i, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+            if v:IsA("LocalScript") then
+                if
+                    v.Name == "General" or v.Name == "Shiftlock" or v.Name == "FallDamage" or v.Name == "4444" or
+                        v.Name == "CamBob" or
+                        v.Name == "JumpCD" or
+                        v.Name == "Looking" or
+                        v.Name == "Run"
+                 then
+                    v:Destroy()
+                end
+            end
+        end
+        for i, v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
+            if v:IsA("LocalScript") then
+                if
+                    v.Name == "RobloxMotor6DBugFix" or v.Name == "Clans" or v.Name == "Codes" or
+                        v.Name == "CustomForceField" or
+                        v.Name == "MenuBloodSp" or
+                        v.Name == "PlayerList"
+                 then
+                    v:Destroy()
+                end
+            end
+        end
+    end
+    AntiBan()
 
